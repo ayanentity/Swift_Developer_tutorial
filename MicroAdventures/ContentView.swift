@@ -27,7 +27,7 @@ struct ContentView: View {
         NavigationStack {
             Map(position: $camera) {
                 // Marker at the center coordinate
-                Marker("目的地", coordinate: centerCoordinate)
+                Marker("Your Here", coordinate: centerCoordinate)
             }
         
             .mapControls { }
