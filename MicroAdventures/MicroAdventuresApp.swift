@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import MapKit
 
 @main
+
 struct MicroAdventuresApp: App {
     var body: some Scene {
         WindowGroup {
