@@ -6,21 +6,22 @@
 //
 
 import SwiftUI
-import MapKit
 
 struct ContentView: View {
     var body: some View {
+        
+        
         TabView {
-            MapScreen()
-                .tabItem {
-                    Label("Map", systemImage: "map")
-                }
-
-            // ② ダミータブ（練習用）
-            ExploreView()
-                .tabItem {
-                    Label("Explore", systemImage: "globe")
-                }
+            Tab("Map", systemImage: "map.fill"){
+                MapScreen()
+            }
+            // バッジの数値をカレンダー情報にしてみた
+            .badge(Calendar.current.component(.hour, from: Date()))
+            
+            Tab("ExploerView",systemImage: "globe"){
+                ExploreView()
+            }
+            .badge(Calendar.current.component(.day, from: Date()))
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct MapScreen: View {
+struct MapScreen: View { // これがプロトコルの指定
     private let centerCoordinate = CLLocationCoordinate2D(latitude: 35.681236, longitude: 139.767125)
 
     @State private var camera: MapCameraPosition = .automatic
