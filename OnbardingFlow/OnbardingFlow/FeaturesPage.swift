@@ -31,6 +31,6 @@ struct FeaturesPage: View {
 #Preview {
     FeaturesPage()
         .frame(maxHeight: .infinity)
-        .background(Gradient(colors: gradientColors))
-        .foregroundStyle(.white)
+        //.background(Gradient(colors: gradientColors))
+        //.foregroundStyle(.white)
 }
