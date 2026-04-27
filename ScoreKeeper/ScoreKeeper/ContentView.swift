@@ -23,17 +23,17 @@ struct ContentView: View {
                 .bold()
                 .padding(.bottom)
                 
-            Grid {
-                GridRow{
+            Grid { // デフォルトは上から下にセルを作っていく
+                GridRow{ //コンテンツをすべて1行に 
                     Text("Player")
-                        .gridColumnAlignment(.leading)
                     Text("Score")
                 }
+                .gridColumnAlignment(.leading)
                 .font(.headline)
                 
                 
                 ForEach($players){ $player in
-                    GridRow{ //コンテンツをすべて1行に
+                    GridRow{
                         TextField("Name", text: $player.name) //nameはテキストフィールドが空の際に表示されるテキスト
                         Stepper("\(player.score)" , value: $player.score)
                     }
