@@ -20,7 +20,7 @@ struct Scoreboard { //新しい構造体
     var doesHighestScoreWin = true
     
     var winners: [Player] { //計算プロパティ 呼ばれるたびに計算して値を返す
-        guard state == .gameOver else { return [] } // 呼ばれたら以下の処理を行うif文に近いけど、前提条件が違う
+        c// 呼ばれたら以下の処理を行うif文に近いけど、前提条件が違う
         
         var winningScore = 0
               if doesHighestScoreWin {
