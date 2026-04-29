@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var players: [Player] = [ //独自のデータモデル
-        Player(name: "Elisha", score: 0),
-        Player(name: "Ayane", score: 0),
-        Player(name: "Jasmine", score: 0),
-        
-    ]
+    @State private var scoreboard = Scoreboard()
+    @State private var startingPoints = 0 // リセットした時の値
+  
     
     
     var body: some View {
@@ -22,9 +19,12 @@ struct ContentView: View {
                 .font(.title)
                 .bold()
                 .padding(.bottom)
-                
+            
+            SettingsView(doesHighestScoreWin: $scoreboard.doesHighestScoreWin, startingPoints: $startingPoints)
+                .disabled(scoreboard.state != .setup)
+            
             Grid { // デフォルトは上から下にセルを作っていく
-                GridRow{ //コンテンツをすべて1行に 
+                GridRow{ //コンテンツをすべて1行に
                     Text("Player")
                     Text("Score")
                 }
@@ -32,20 +32,56 @@ struct ContentView: View {
                 .font(.headline)
                 
                 
-                ForEach($players){ $player in
-                    GridRow{
-                        TextField("Name", text: $player.name) //nameはテキストフィールドが空の際に表示されるテキスト
-                        Stepper("\(player.score)" , value: $player.score)
+                ForEach($scoreboard.players) { $player in
+                    GridRow {
+                        HStack {
+                            if scoreboard.winners.contains(player) {
+                                Image(systemName: "crown.fill")
+                                    .foregroundStyle(Color.yellow)
+                            }
+                            TextField("Name", text: $player.name)
+                                .disabled(scoreboard.state != .setup)
+                        }
+                        Text("\(player.score)")
+                            .opacity(scoreboard.state == .setup ? 0 : 1.0)
+                        Stepper("\(player.score)", value: $player.score)
+                            .labelsHidden()
+                            .opacity(scoreboard.state == .setup ? 0 : 1.0)
                     }
                 }
             }
             .padding(.vertical)
             
             Button("Add Player", systemImage: "plus"){
-                players.append(Player(name: "", score: 0))
+                scoreboard.players.append(Player(name: "", score: 0))
             }
-            
+            .opacity(scoreboard.state == .setup ? 1.0 : 0)
+
             Spacer()
+            
+            HStack{
+                Spacer() //両サイドにスペーサーを置いて中央配置
+                switch scoreboard.state {
+                case .setup:
+                    Button("Start Game", systemImage: "play.fill") {
+                        scoreboard.state = .playing
+                    }
+                case .playing:
+                    Button("End Game", systemImage: "stop.fill") {
+                        scoreboard.state = .gameOver
+                    }
+                case .gameOver:
+                    Button("Reset Game", systemImage: "arrow.counterclockwise") {
+                        scoreboard.resetScores(to: startingPoints)
+                        scoreboard.state = .setup
+                    }
+                }
+                Spacer()
+            }
+            .buttonStyle(.bordered)
+            .buttonBorderShape(.capsule)
+            .controlSize(.large)
+            .tint(.blue)
         }
         .padding()
     }

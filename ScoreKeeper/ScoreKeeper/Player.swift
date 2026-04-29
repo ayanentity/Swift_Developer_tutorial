@@ -15,3 +15,9 @@ struct Player: Identifiable{
     var score: Int
 
 }
+
+extension Player: Equatable { //既存の構造体から後から追加，Equatable があると == で比べられる
+    static func == (lhs: Player, rhs: Player) -> Bool {
+         lhs.name == rhs.name && lhs.score == rhs.score //両方のプロパティが一緒なら同じとみなす
+     }
+}
