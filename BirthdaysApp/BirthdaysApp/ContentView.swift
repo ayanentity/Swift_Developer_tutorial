@@ -33,12 +33,12 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Birthdays")
-            .safeAreaInset(edge: .bottom ){
+            .safeAreaInset(edge: .bottom ){ //常に画面下に固定
                 VStack(alignment: .center, spacing: 20) {
                     Text("New Birthday")
                         .font(.headline)
                     DatePicker(selection: $newDate, in: Date.distantPast...Date.now, displayedComponents: .date){
-                        TextField("Name", text: $newName)
+                        TextField("Name", text: $newName) //ラベルの代わりにテキストフィールドを置いてる
                             .textFieldStyle(.roundedBorder)
                     }
                     Button("Save"){
@@ -54,15 +54,15 @@ struct ContentView: View {
                 .padding()
                 .background(.bar)
             }
-            .task {
+            /*.task {
                context.insert(Friend(name: "Elton Lin", birthday: .now))
                context.insert(Friend(name: "Jenny Court", birthday: Date(timeIntervalSince1970: 0)))
-           }
+           }*/
         }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Friend.self, inMemory: true)
+        .modelContainer(for: Friend.self, inMemory: true) //メモリ上だけに保存（プレビュー終わったら消える）
 }
