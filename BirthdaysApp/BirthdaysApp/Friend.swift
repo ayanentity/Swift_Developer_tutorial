@@ -19,6 +19,6 @@ class Friend {
     }
     
     var isBirthdayToday: Bool { //今日誕生日かのBool条件
-            Calendar.current.isDateInToday(birthday)
+            Calendar.current.isDateInToday(birthday) //Friendのデータを保存する場所-コンテナを用意させる
         }
 }
