@@ -17,9 +17,8 @@ struct MovieList: View {
             List{
                 ForEach (movies){ movie in
                     NavigationLink(movie.title){
-                        Text("Detail view for \(movie.title)")
-                            .navigationTitle("Movie")
-                            .navigationBarTitleDisplayMode(.inline)
+                        MovieDetail(movie: movie)
+    
                     }
                    
                 }
