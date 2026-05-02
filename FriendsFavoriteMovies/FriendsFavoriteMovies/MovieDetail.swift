@@ -4,12 +4,23 @@
 //
 //  Created by 仲里絢音 on 2026/05/02.
 //
+//
 
 import SwiftUI
+import SwiftData
 
 
 struct MovieDetail: View {
     @Bindable var movie: Movie
+    let isNew: Bool
+    
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var context
+    
+    init(movie: Movie, isNew: Bool = false) {
+        self.movie = movie
+        self.isNew = isNew
+    }
 
 
     var body: some View {
@@ -17,14 +28,31 @@ struct MovieDetail: View {
             TextField("Name", text: $movie.title)
             DatePicker("Release date", selection: $movie.releaseDate, displayedComponents: .date)
         }
-        .navigationTitle("Movie")
+        .navigationTitle( isNew ? "New Movie" : "Movie")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+            if isNew {
+                ToolbarItem(placement: .confirmationAction){
+                    Button("Save"){
+                        dismiss()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.blue)
+                }
+                ToolbarItem(placement: .cancellationAction){
+                    Button("Cancel"){
+                        context.delete(movie)
+                        dismiss()
+                    }
+                }
+            }
+        }
     }
 }
 
     
 #Preview {
     NavigationStack{
-        MovieDetail(movie: SampleData.shared.movie)
+        MovieDetail(movie: SampleData.shared.movie, isNew: true)
     }
 }

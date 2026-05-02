@@ -8,26 +8,54 @@
 import SwiftUI
 import SwiftData
 
+
 struct MovieList: View {
-    @Query(sort:\ Movie.title) private var movies: [Movie] //Movie.swiftのclassデータを並べ替えて,moviesに入れる
+    @Query(sort: \Movie.title) private var movies: [Movie]
     @Environment(\.modelContext) private var context
-    
+    @State private var newMovie: Movie?
+
+
     var body: some View {
-        NavigationSplitView{
-            List{
-                ForEach (movies){ movie in
-                    NavigationLink(movie.title){
+        NavigationSplitView {
+            List {
+                ForEach(movies) { movie in
+                    NavigationLink(movie.title) {
                         MovieDetail(movie: movie)
-    
                     }
-                   
                 }
+                .onDelete(perform: deleteMovies(indexes:))
             }
             .navigationTitle("Movies")
+            .toolbar {
+                ToolbarItem {
+                    Button("Add movie", systemImage: "plus", action: addMovie)
+                }
+                ToolbarItem(placement: .topBarTrailing){
+                    EditButton()
+                }
+            }
+            .sheet(item: $newMovie){ movie in
+                NavigationStack{
+                    MovieDetail(movie: movie, isNew: true)
+                }
+                .interactiveDismissDisabled()
+            }
         } detail: {
-            Text("Select a Friend")
+            Text("Select a movie")
                 .navigationTitle("Movie")
                 .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+
+    private func addMovie() { //リスト追加関数
+        let newMovie = Movie(title: "", releaseDate: .now)
+        context.insert(newMovie)
+        self.newMovie = newMovie
+    }
+    
+    private func deleteMovies(indexes: IndexSet){ //削除関数
+        for index in indexes{
+            context.delete(movies[index])
         }
     }
 }
@@ -35,5 +63,5 @@ struct MovieList: View {
 
 #Preview {
     MovieList()
-        .modelContainer(SampleData.shared.modelContainer) //このViewが使うデータ倉庫はこれ
+        .modelContainer(SampleData.shared.modelContainer)
 }
