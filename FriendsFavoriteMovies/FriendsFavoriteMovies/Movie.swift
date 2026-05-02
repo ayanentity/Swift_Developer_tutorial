@@ -12,6 +12,7 @@ import SwiftData
 class Movie {
     var title: String
     var releaseDate: Date
+    var favoritedBy = [Friend]() //1作品につきお気に入りに登録する人は1対多だから配列にする
 
 
     init(title: String, releaseDate: Date) {

@@ -10,40 +10,47 @@ import SwiftData
 
 
 struct MovieList: View {
-    @Query(sort: \Movie.title) private var movies: [Movie]
+    @Query private var movies: [Movie]
     @Environment(\.modelContext) private var context
     @State private var newMovie: Movie?
 
+    init(titleFilter: String = ""){ //検索ワードを受け取る
+        let predicate = #Predicate<Movie> { movie in
+            titleFilter.isEmpty || movie.title.localizedStandardContains(titleFilter)
+            }
+        _movies = Query(filter: predicate, sort: \Movie.title)
+    }
+    
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(movies) { movie in
-                    NavigationLink(movie.title) {
-                        MovieDetail(movie: movie)
+        Group{
+            if !movies.isEmpty {
+                List {
+                    ForEach(movies) { movie in
+                        NavigationLink(movie.title) {
+                            MovieDetail(movie: movie)
+                        }
+                    }
+                    .onDelete(perform: deleteMovies(indexes:))
+                }
+                .navigationTitle("Movies")
+                .toolbar {
+                    ToolbarItem {
+                        Button("Add movie", systemImage: "plus", action: addMovie)
+                    }
+                    ToolbarItem(placement: .topBarTrailing){
+                        EditButton()
                     }
                 }
-                .onDelete(perform: deleteMovies(indexes:))
-            }
-            .navigationTitle("Movies")
-            .toolbar {
-                ToolbarItem {
-                    Button("Add movie", systemImage: "plus", action: addMovie)
+                .sheet(item: $newMovie){ movie in //newMovieがあったら
+                    NavigationStack{
+                        MovieDetail(movie: movie, isNew: true)
+                    }
+                    .interactiveDismissDisabled()
                 }
-                ToolbarItem(placement: .topBarTrailing){
-                    EditButton()
-                }
+            } else {
+                ContentUnavailableView("Add Movies", systemImage: "film.stack")
             }
-            .sheet(item: $newMovie){ movie in
-                NavigationStack{
-                    MovieDetail(movie: movie, isNew: true)
-                }
-                .interactiveDismissDisabled()
-            }
-        } detail: {
-            Text("Select a movie")
-                .navigationTitle("Movie")
-                .navigationBarTitleDisplayMode(.inline)
         }
     }
 
@@ -60,8 +67,23 @@ struct MovieList: View {
     }
 }
 
+#Preview {
+    NavigationStack {
+        MovieList()
+            .modelContainer(SampleData.shared.modelContainer)
+    }
+}
 
 #Preview {
-    MovieList()
-        .modelContainer(SampleData.shared.modelContainer)
+    NavigationStack {
+        MovieList(titleFilter: "tr")
+            .modelContainer(SampleData.shared.modelContainer)
+    }
+}
+
+#Preview("Empty List") {
+    NavigationStack {
+        MovieList()
+            .modelContainer(for: Movie.self, inMemory: true)
+    }
 }

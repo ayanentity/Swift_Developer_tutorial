@@ -17,14 +17,20 @@ struct FriendList: View {
 
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(friends) { friend in
-                    NavigationLink(friend.name) {
-                        FriendDetail(friend: friend)
-                    }
+            Group{ //if文には .navigationTitle をつけられない.Group = 複数のViewをまとめる透明な箱
+                if !friends.isEmpty {
+                    List {
+                        ForEach(friends) { friend in
+                            NavigationLink(friend.name) {
+                                FriendDetail(friend: friend)
+                            }
+                        }
+                    .onDelete(perform: deleteFriend(indexes:))
                 }
-                .onDelete(perform: deleteFriend(indexes:))
+            } else {
+                ContentUnavailableView("Add Friends", systemImage: "person.and.person.fill")
             }
+        }
             .navigationTitle("Friends")
             .toolbar {
                 ToolbarItem {
@@ -65,4 +71,9 @@ struct FriendList: View {
 #Preview {
     FriendList()
         .modelContainer(SampleData.shared.modelContainer)
+}
+
+#Preview("Empty List") {
+    FriendList()
+        .modelContainer(for: Friend.self, inMemory: true)
 }

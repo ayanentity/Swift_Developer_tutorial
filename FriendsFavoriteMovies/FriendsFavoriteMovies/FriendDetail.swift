@@ -15,6 +15,8 @@ struct FriendDetail: View {
     @Environment(\.dismiss) private var dismiss //シートを閉じる
     @Environment(\.modelContext) private var context
     
+    @Query(sort: \Movie.title) private var movies: [Movie]
+    
     init(friend: Friend, isNew: Bool = false){
         self.friend = friend
         self.isNew = isNew
@@ -24,6 +26,15 @@ struct FriendDetail: View {
         Form {
             TextField("Name", text: $friend.name)
                 .autocorrectionDisabled()
+            Picker("FavoriteMovie", selection: $friend.favoriteMovie){
+                Text("None") // お気に入りがない人のため
+                   .tag(nil as Movie?)
+                
+                ForEach(movies){ movie in
+                    Text(movie.title)
+                        .tag(movie)
+                }
+            }
         }
         .navigationTitle(isNew ? "New Friend" : "Friend")
         .navigationBarTitleDisplayMode(.inline)

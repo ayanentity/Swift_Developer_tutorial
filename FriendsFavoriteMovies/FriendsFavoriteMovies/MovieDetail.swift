@@ -22,11 +22,24 @@ struct MovieDetail: View {
         self.isNew = isNew
     }
 
+    var sortedFriends: [Friend] {
+        movie.favoritedBy.sorted { first, second in 
+            first.name < second.name
+        }
+    }
 
     var body: some View {
         Form {
             TextField("Name", text: $movie.title)
             DatePicker("Release date", selection: $movie.releaseDate, displayedComponents: .date)
+            
+            if !movie.favoritedBy.isEmpty{ //誰かがお気に入りに登録していたら
+                Section("Favorite By"){ //セクションタイトル
+                    ForEach(sortedFriends){ friend in
+                        Text(friend.name)
+                    }
+                }
+            }
         }
         .navigationTitle( isNew ? "New Movie" : "Movie")
         .navigationBarTitleDisplayMode(.inline)
@@ -42,7 +55,7 @@ struct MovieDetail: View {
                 ToolbarItem(placement: .cancellationAction){
                     Button("Cancel"){
                         context.delete(movie)
-                        dismiss()
+                            dismiss()
                     }
                 }
             }
