@@ -12,6 +12,7 @@ import SwiftData
 @Model
 class Friend {
     var name: String
+    var favoriteMovie: Movie? //nilかどうか、optionalにすることでお気に入りがなくても問題ないように
 
     init(name: String) {
         self.name = name
