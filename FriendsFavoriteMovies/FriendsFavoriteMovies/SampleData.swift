@@ -18,6 +18,13 @@ class SampleData {
         modelContainer.mainContext
     }
     
+    var friend: Friend {
+        Friend.sampleData.first!
+    }
+    
+    var movie: Movie {
+         Movie.sampleData.first!
+     }
     
     private init() {
         let schema = Schema([ //データベースに「どんなテーブルがあるか」の設計図
