@@ -9,14 +9,26 @@ import SwiftUI
 import SwiftData
 
 struct MovieList: View {
-    @Query(sort:\ Movie.title) private var movies: [Movie]
+    @Query(sort:\ Movie.title) private var movies: [Movie] //Movie.swiftのclassデータを並べ替えて,moviesに入れる
     @Environment(\.modelContext) private var context
     
     var body: some View {
-        List{
-            ForEach (movies){ movie in
-                Text(movie.title)
+        NavigationSplitView{
+            List{
+                ForEach (movies){ movie in
+                    NavigationLink(movie.title){
+                        Text("Detail view for \(movie.title)")
+                            .navigationTitle("Movie")
+                            .navigationBarTitleDisplayMode(.inline)
+                    }
+                   
+                }
             }
+            .navigationTitle("Movies")
+        } detail: {
+            Text("Select a Friend")
+                .navigationTitle("Movie")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -24,5 +36,5 @@ struct MovieList: View {
 
 #Preview {
     MovieList()
-        .modelContainer(SampleData.shared.modelContainer)
+        .modelContainer(SampleData.shared.modelContainer) //このViewが使うデータ倉庫はこれ
 }

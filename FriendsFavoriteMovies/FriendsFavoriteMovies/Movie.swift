@@ -20,7 +20,7 @@ class Movie {
     }
 
 
-    static let sampleData = [
+    static let sampleData = [ //SampleData.swiftで全部DBに入れる
         Movie(title: "Amusing Space Traveler 3",
               releaseDate: Date(timeIntervalSinceReferenceDate: -402_000_000)),
         Movie(title: "Difficult Cat",
