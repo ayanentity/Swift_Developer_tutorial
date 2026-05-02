@@ -12,10 +12,9 @@ import SwiftData
 class SampleData {
     static let shared = SampleData() //シングルトン アプリ全体で1つだけ使い回す設計
     
-    let modelContainer: ModelContainer
+    let modelContainer: ModelContainer //データベースコンテナの準備
     
-    
-    var context: ModelContext {
+    var context: ModelContext { //コンテキストの用意
         modelContainer.mainContext
     }
     
@@ -25,22 +24,24 @@ class SampleData {
             Friend.self,
             Movie.self,
                             ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true) //スキーマを渡して、メモリ上に保存
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true) //スキーマを渡して、メモリ上に保存、どんな棚が必要か．
         
         
         do {
+            //　データベースの箱を作る
             modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
-            
+            // サンプルデータクを追加予定リストに入れる
             insertSampleData()
             
-            try context.save()  
+            // 書き込む、.save()で確定
+            try context.save()
         } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+            fatalError("Could not create ModelContainer: \(error)") // 失敗したら強制終了
         }
     }
     
     
-    private func insertSampleData() {
+    private func insertSampleData() { //関数
         for friend in Friend.sampleData {
             context.insert(friend)
         }
