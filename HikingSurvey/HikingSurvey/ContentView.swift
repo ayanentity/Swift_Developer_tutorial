@@ -7,15 +7,53 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    @FocusState private var textFieldIsFocused: Bool //flag
+    @State var responses: [Response] = []
+    @State private var responseText = "" //追加テキスト
+    var scorer = Scorer()
+    
+    func saveResponse(text: String) {
+        let score = scorer.score(text)
+        let response = Response(text: text, score: score)
+        responses.insert(response, at: 0)
+    }
+
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Opinions on Hiking")
+                .frame(maxWidth: .infinity)
+                .font(.title)
+                .padding(.top, 24)
+            ScrollView { //この中に入っているものしか、スクロールに反映されない
+                ChartView(responses: responses)
+                ForEach(responses) { response in
+                    ResponseView(response: response)
+                }
+            }
+            HStack {
+                TextField("What do you think about hiking?", text: $responseText)
+                    .textFieldStyle(.roundedBorder)
+                    .lineLimit(5) //段落は5行までいけるよ．垂直方向に伸びるよ
+                Button("Done"){
+                    guard !responseText.isEmpty else { return }
+                    saveResponse(text: responseText)
+                    responseText = "" //入力終わったらテキストフィールドを空に
+                    textFieldIsFocused = false
+                }
+                .padding(.horizontal, 4)
+            }
+            .padding(.bottom, 8)
         }
-        .padding()
+        .onAppear {
+            for response in Response.sampleResponses {
+                saveResponse(text: response)
+            }
+        }
+        .padding(.horizontal)
+        .background(Color(white: 0.94))
     }
 }
 
