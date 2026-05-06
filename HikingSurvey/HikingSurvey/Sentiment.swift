@@ -10,7 +10,7 @@ import SwiftUI
 import Charts //グラフ描画
 
 
-enum Sentiment: String, Plottable { //感情スコアごとに表示ケースを変えるため
+enum Sentiment: String, Plottable { //グラフに使えるというプロトコル
     case positive = "Positive" //各々の状態に名前をつける
     case negative = "Negative"
     case moderate = "Moderate"
