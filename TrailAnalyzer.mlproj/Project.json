@@ -1,0 +1,29 @@
+{
+  "activityEntities" : [
+    "projectCreated",
+    [
+      {
+        "createdDate" : "2026-05-07T22:20:15Z",
+        "event" : "projectCreated",
+        "id" : "62EB8969-9394-4105-B42E-E4B05790BF17",
+        "subtitle" : "TrailAnalyzer",
+        "title" : "Project Created"
+      }
+    ]
+  ],
+  "authorName" : "ayane",
+  "createdDate" : "2026-05-07T22:20:15Z",
+  "description" : "",
+  "id" : "1B98E135-DF44-44E6-9666-D2BA3ED680DF",
+  "license" : "",
+  "location" : "",
+  "modifiedDate" : "2026-05-07T22:20:15Z",
+  "projectName" : "TrailAnalyzer",
+  "settingsEntity" : {
+    "snapshotOnExtendTraining" : true,
+    "snapshotOnResumeTraining" : false
+  },
+  "taskType" : "generalRegresor",
+  "title" : "Tabular Regression",
+  "version" : "1.1"
+}

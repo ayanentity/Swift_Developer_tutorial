@@ -1,0 +1,127 @@
+{
+  "activityEntities" : [
+    "dataSourceMetrics",
+    [
+      {
+        "createdDate" : "2026-05-07T22:21:05Z",
+        "event" : "dataSourceMetrics",
+        "id" : "AF9A235C-9BC4-497C-8E42-3744BFD88B58",
+        "subtitle" : "10,000 Items",
+        "title" : "Data Summary"
+      },
+      {
+        "createdDate" : "2026-05-07T22:25:03Z",
+        "event" : "dataSourceMetrics",
+        "id" : "835DF60B-AF4A-48DE-9DB6-544DBA2D88C1",
+        "subtitle" : "10,000 Items",
+        "title" : "Data Summary"
+      },
+      {
+        "createdDate" : "2026-05-07T22:26:10Z",
+        "event" : "dataSourceMetrics",
+        "id" : "1F77A1B1-76B7-479C-AE3E-0459CF865375",
+        "subtitle" : "10,000 Items",
+        "title" : "Data Summary"
+      }
+    ],
+    "dataSourceTrainingStarted",
+    [
+      {
+        "createdDate" : "2026-05-07T22:21:05Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "A0E456B9-2F55-41F6-8179-DBFA58B97891",
+        "subtitle" : "TrailAnalyzer 1",
+        "title" : "Used By"
+      },
+      {
+        "createdDate" : "2026-05-07T22:25:03Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "853488A3-F7BA-4351-9C84-87587C1F79A9",
+        "subtitle" : "TrailAnalyzer Automatic",
+        "title" : "Used By"
+      },
+      {
+        "createdDate" : "2026-05-07T22:26:10Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "3A1B6C5E-5C52-4C1A-9579-11908BD9A722",
+        "subtitle" : "Linear Regression",
+        "title" : "Used By"
+      }
+    ]
+  ],
+  "createdDate" : "2026-05-07T22:20:21Z",
+  "dataPathRelativeToProjectURL" : "../../../Downloads/TrailData/Trail10k.csv/",
+  "dataResult" : {
+    "columnTypes" : [
+      "Int",
+      "Int",
+      "String",
+      "Int",
+      "Int"
+    ],
+    "columnValues" : [
+      "1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1",
+      "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+      "paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved, paved",
+      "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+      "1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1"
+    ],
+    "columns" : [
+      "distance",
+      "elevation",
+      "terrain",
+      "dangerous",
+      "risk"
+    ],
+    "createdDate" : "2026-05-07T22:20:21Z",
+    "dataAnalysis" : {
+      "classifierAnalysis" : {
+
+      },
+      "issues" : [
+        {
+          "description" : "No target selected",
+          "severity" : "notReady"
+        },
+        {
+          "description" : "Data has 10000 rows",
+          "severity" : "info"
+        },
+        {
+          "description" : "No features selected",
+          "severity" : "notReady"
+        }
+      ],
+      "objectDetectorAnalysis" : {
+        "details" : {
+
+        }
+      },
+      "summary" : {
+        "canUseValidation" : 1,
+        "sampleCount" : 10000
+      }
+    },
+    "dataSourceID" : "33711C75-A97A-46BB-A0A3-12153CE5D6AE",
+    "dataURL" : "file:///Users/tity/Downloads/TrailData/Trail10k.csv",
+    "error" : {
+      "code" : 1000,
+      "domain" : "composer.error.domain",
+      "errorType" : "notReady",
+      "reason" : "No target selected"
+    },
+    "itemsCount" : 10000
+  },
+  "dataURL" : "file:///Users/tity/Downloads/TrailData/Trail10k.csv",
+  "experimentIDs" : [
+    "710EF732-51F2-4509-AF39-AA476D162125",
+    "B70C28C1-DE87-410F-BFAD-60CC4C74235D",
+    "8480E385-98C6-4A9D-BC9D-B65084B166EE"
+  ],
+  "id" : "33711C75-A97A-46BB-A0A3-12153CE5D6AE",
+  "modifiedDate" : "2026-05-07T22:26:10Z",
+  "pathType" : 0,
+  "preferredFilename" : "Trail10k.csv",
+  "title" : "Trail10k.csv",
+  "version" : "1.0"
+}
