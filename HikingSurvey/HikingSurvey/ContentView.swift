@@ -30,7 +30,7 @@ struct ContentView: View {
             ScrollView { //この中に入っているものしか、スクロールに反映されない
                 ChartView(responses: responses)
                 ForEach(responses) { response in
-                    ResponseView(response: response)
+                    ResponseView(response: response)  //(引数名: 渡す値)
                 }
             }
             HStack {
@@ -47,7 +47,7 @@ struct ContentView: View {
             }
             .padding(.bottom, 8)
         }
-        .onAppear {
+        .onAppear { //同期処理、画面が表示された時に1回だけ実行
             for response in Response.sampleResponses {
                 saveResponse(text: response)
             }

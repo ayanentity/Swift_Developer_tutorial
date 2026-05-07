@@ -17,18 +17,18 @@ struct ChartView: View {
     
     var body: some View {
         Chart(responses) { response in
-            SectorMark(angle: .value("Type", 1), innerRadius: .ratio(0.75)) //中の円を元の75%のサイズで
-                .foregroundStyle(by: .value("sentiment", response.sentiment))
+            SectorMark(angle: .value("Type", 1), innerRadius: .ratio(0.75)) //angle: .value("Type", 1)＝全員同じサイズ．内側を75%くり抜く
+                .foregroundStyle(by: .value("sentiment", response.sentiment)) //sentiment型が持つラベル名をvalueとして
         }
         .chartForegroundStyleScale([
             Sentiment.positive : Sentiment.positive.sentimentColor,
             Sentiment.negative : Sentiment.negative.sentimentColor,
             Sentiment.moderate : Sentiment.moderate.sentimentColor
         ])
-        .chartBackground { chartProxy in
+        .chartBackground { chartProxy in //チャートの背景に何か描くよ
             GeometryReader { geometry in
-                if let anchor = chartProxy.plotFrame {
-                    let frame = geometry[anchor]
+                if let anchor = chartProxy.plotFrame { //グラフ描画のエリア
+                    let frame = geometry[anchor] // 情報を取得後、フレームサイズとして代入
                     Image(systemName: "figure.hiking")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
