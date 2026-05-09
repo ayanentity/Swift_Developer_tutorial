@@ -1,5 +1,35 @@
 {
   "activityEntities" : [
+    "trainingFinished",
+    [
+      {
+        "createdDate" : "2026-05-07T22:26:10Z",
+        "event" : "trainingFinished",
+        "id" : "E76964C7-F780-4B15-87DA-FFA418EF3FA0",
+        "subtitle" : "10 iterations",
+        "title" : "Training Completed"
+      }
+    ],
+    "evaluationStarted",
+    [
+      {
+        "createdDate" : "2026-05-07T22:26:12Z",
+        "event" : "evaluationStarted",
+        "id" : "C1F5FF32-34F5-4A01-BD67-3A0B62F6EC79",
+        "subtitle" : "Linear Regression",
+        "title" : "Testing Started"
+      }
+    ],
+    "trainingStarted",
+    [
+      {
+        "createdDate" : "2026-05-07T22:26:10Z",
+        "event" : "trainingStarted",
+        "id" : "E1102F75-8761-48C8-9018-B48E492287BD",
+        "subtitle" : "10 iterations",
+        "title" : "Training Started"
+      }
+    ],
     "experimentCreated",
     [
       {
@@ -20,36 +50,6 @@
         "title" : "Testing Completed"
       }
     ],
-    "evaluationStarted",
-    [
-      {
-        "createdDate" : "2026-05-07T22:26:12Z",
-        "event" : "evaluationStarted",
-        "id" : "C1F5FF32-34F5-4A01-BD67-3A0B62F6EC79",
-        "subtitle" : "Linear Regression",
-        "title" : "Testing Started"
-      }
-    ],
-    "trainingFinished",
-    [
-      {
-        "createdDate" : "2026-05-07T22:26:10Z",
-        "event" : "trainingFinished",
-        "id" : "E76964C7-F780-4B15-87DA-FFA418EF3FA0",
-        "subtitle" : "10 iterations",
-        "title" : "Training Completed"
-      }
-    ],
-    "evaluationDataAdded",
-    [
-      {
-        "createdDate" : "2026-05-07T22:25:29Z",
-        "event" : "evaluationDataAdded",
-        "id" : "C1DB8321-1935-4F74-8CA8-BDF6A72CA430",
-        "subtitle" : "Trail1k.csv",
-        "title" : "Testing Data Added"
-      }
-    ],
     "trainingDataAdded",
     [
       {
@@ -60,14 +60,14 @@
         "title" : "Training Data Added"
       }
     ],
-    "trainingStarted",
+    "evaluationDataAdded",
     [
       {
-        "createdDate" : "2026-05-07T22:26:10Z",
-        "event" : "trainingStarted",
-        "id" : "E1102F75-8761-48C8-9018-B48E492287BD",
-        "subtitle" : "10 iterations",
-        "title" : "Training Started"
+        "createdDate" : "2026-05-07T22:25:29Z",
+        "event" : "evaluationDataAdded",
+        "id" : "C1DB8321-1935-4F74-8CA8-BDF6A72CA430",
+        "subtitle" : "Trail1k.csv",
+        "title" : "Testing Data Added"
       }
     ]
   ],

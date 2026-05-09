@@ -1,53 +1,13 @@
 {
   "activityEntities" : [
-    "trainingFinished",
-    [
-      {
-        "createdDate" : "2026-05-07T22:25:03Z",
-        "event" : "trainingFinished",
-        "id" : "A09A87A5-04F4-4C58-8A2D-BB046CE6EC43",
-        "subtitle" : "TrailAnalyzer Automatic",
-        "title" : "Training Completed"
-      }
-    ],
-    "trainingStarted",
-    [
-      {
-        "createdDate" : "2026-05-07T22:25:03Z",
-        "event" : "trainingStarted",
-        "id" : "179A4D43-BD78-4B42-9A7C-06D6832B7999",
-        "subtitle" : "TrailAnalyzer Automatic",
-        "title" : "Training Started"
-      }
-    ],
-    "evaluationStarted",
-    [
-      {
-        "createdDate" : "2026-05-07T22:25:05Z",
-        "event" : "evaluationStarted",
-        "id" : "6FAB6488-FB4A-4021-800D-BAC6A927C3CB",
-        "subtitle" : "TrailAnalyzer Automatic",
-        "title" : "Testing Started"
-      }
-    ],
-    "evaluationFinished",
-    [
-      {
-        "createdDate" : "2026-05-07T22:25:05Z",
-        "event" : "evaluationFinished",
-        "id" : "9108A00D-B6D0-4CF3-BC09-96F6D1FDCEF7",
-        "subtitle" : "TrailAnalyzer Automatic",
-        "title" : "Testing Completed"
-      }
-    ],
-    "experimentCreated",
+    "trainingDataAdded",
     [
       {
         "createdDate" : "2026-05-07T22:21:31Z",
-        "event" : "experimentCreated",
-        "id" : "A5149D7F-D94C-43D3-ABCB-D5CE1F0DDCB7",
-        "subtitle" : "TrailAnalyzer Automatic",
-        "title" : "Model Source Created"
+        "event" : "trainingDataAdded",
+        "id" : "E32CD4FE-9800-4767-B66D-085680F88868",
+        "subtitle" : "Trail10k.csv",
+        "title" : "Training Data Added"
       }
     ],
     "evaluationDataAdded",
@@ -60,14 +20,54 @@
         "title" : "Testing Data Added"
       }
     ],
-    "trainingDataAdded",
+    "experimentCreated",
     [
       {
         "createdDate" : "2026-05-07T22:21:31Z",
-        "event" : "trainingDataAdded",
-        "id" : "E32CD4FE-9800-4767-B66D-085680F88868",
-        "subtitle" : "Trail10k.csv",
-        "title" : "Training Data Added"
+        "event" : "experimentCreated",
+        "id" : "A5149D7F-D94C-43D3-ABCB-D5CE1F0DDCB7",
+        "subtitle" : "TrailAnalyzer Automatic",
+        "title" : "Model Source Created"
+      }
+    ],
+    "trainingFinished",
+    [
+      {
+        "createdDate" : "2026-05-07T22:25:03Z",
+        "event" : "trainingFinished",
+        "id" : "A09A87A5-04F4-4C58-8A2D-BB046CE6EC43",
+        "subtitle" : "TrailAnalyzer Automatic",
+        "title" : "Training Completed"
+      }
+    ],
+    "evaluationStarted",
+    [
+      {
+        "createdDate" : "2026-05-07T22:25:05Z",
+        "event" : "evaluationStarted",
+        "id" : "6FAB6488-FB4A-4021-800D-BAC6A927C3CB",
+        "subtitle" : "TrailAnalyzer Automatic",
+        "title" : "Testing Started"
+      }
+    ],
+    "trainingStarted",
+    [
+      {
+        "createdDate" : "2026-05-07T22:25:03Z",
+        "event" : "trainingStarted",
+        "id" : "179A4D43-BD78-4B42-9A7C-06D6832B7999",
+        "subtitle" : "TrailAnalyzer Automatic",
+        "title" : "Training Started"
+      }
+    ],
+    "evaluationFinished",
+    [
+      {
+        "createdDate" : "2026-05-07T22:25:05Z",
+        "event" : "evaluationFinished",
+        "id" : "9108A00D-B6D0-4CF3-BC09-96F6D1FDCEF7",
+        "subtitle" : "TrailAnalyzer Automatic",
+        "title" : "Testing Completed"
       }
     ]
   ],
