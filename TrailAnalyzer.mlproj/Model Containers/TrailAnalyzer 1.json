@@ -1,15 +1,5 @@
 {
   "activityEntities" : [
-    "evaluationStarted",
-    [
-      {
-        "createdDate" : "2026-05-07T22:21:07Z",
-        "event" : "evaluationStarted",
-        "id" : "6A44E043-8D2E-4AF3-89CB-6A0D604F701B",
-        "subtitle" : "TrailAnalyzer 1",
-        "title" : "Testing Started"
-      }
-    ],
     "trainingStarted",
     [
       {
@@ -18,26 +8,6 @@
         "id" : "CBEF3060-BF6F-4A6F-B245-52CB21581B25",
         "subtitle" : "TrailAnalyzer 1",
         "title" : "Training Started"
-      }
-    ],
-    "trainingDataAdded",
-    [
-      {
-        "createdDate" : "2026-05-07T22:20:21Z",
-        "event" : "trainingDataAdded",
-        "id" : "B4DD2012-64F1-4CBB-895C-B28AA72552C5",
-        "subtitle" : "Trail10k.csv",
-        "title" : "Training Data Added"
-      }
-    ],
-    "experimentCreated",
-    [
-      {
-        "createdDate" : "2026-05-07T22:20:15Z",
-        "event" : "experimentCreated",
-        "id" : "B3734A99-32BF-4317-87B6-E75C85942E40",
-        "subtitle" : "TrailAnalyzer 1",
-        "title" : "Model Source Created"
       }
     ],
     "evaluationDataAdded",
@@ -50,16 +20,6 @@
         "title" : "Testing Data Added"
       }
     ],
-    "trainingFinished",
-    [
-      {
-        "createdDate" : "2026-05-07T22:21:05Z",
-        "event" : "trainingFinished",
-        "id" : "D8B65670-5201-464B-BAD4-34683D620154",
-        "subtitle" : "TrailAnalyzer 1",
-        "title" : "Training Completed"
-      }
-    ],
     "evaluationFinished",
     [
       {
@@ -68,6 +28,46 @@
         "id" : "72272820-819B-4BD2-93E8-49814E0DE80F",
         "subtitle" : "TrailAnalyzer 1",
         "title" : "Testing Completed"
+      }
+    ],
+    "experimentCreated",
+    [
+      {
+        "createdDate" : "2026-05-07T22:20:15Z",
+        "event" : "experimentCreated",
+        "id" : "B3734A99-32BF-4317-87B6-E75C85942E40",
+        "subtitle" : "TrailAnalyzer 1",
+        "title" : "Model Source Created"
+      }
+    ],
+    "trainingDataAdded",
+    [
+      {
+        "createdDate" : "2026-05-07T22:20:21Z",
+        "event" : "trainingDataAdded",
+        "id" : "B4DD2012-64F1-4CBB-895C-B28AA72552C5",
+        "subtitle" : "Trail10k.csv",
+        "title" : "Training Data Added"
+      }
+    ],
+    "evaluationStarted",
+    [
+      {
+        "createdDate" : "2026-05-07T22:21:07Z",
+        "event" : "evaluationStarted",
+        "id" : "6A44E043-8D2E-4AF3-89CB-6A0D604F701B",
+        "subtitle" : "TrailAnalyzer 1",
+        "title" : "Testing Started"
+      }
+    ],
+    "trainingFinished",
+    [
+      {
+        "createdDate" : "2026-05-07T22:21:05Z",
+        "event" : "trainingFinished",
+        "id" : "D8B65670-5201-464B-BAD4-34683D620154",
+        "subtitle" : "TrailAnalyzer 1",
+        "title" : "Training Completed"
       }
     ]
   ],
